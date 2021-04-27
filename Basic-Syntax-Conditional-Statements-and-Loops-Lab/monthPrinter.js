@@ -11,7 +11,7 @@ function monthPrinter(input) {
         console.log(`February`);
         break;
       case 3:
-        console.log(`Mart`);
+        console.log(`March`);
         break;
       case 4:
         console.log(`April`);
