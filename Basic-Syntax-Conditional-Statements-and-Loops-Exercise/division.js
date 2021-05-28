@@ -1,21 +1,41 @@
 function division(input) {
   let numb = Number(input);
-  let maxDivision = 0;
-  let div = [2,3,6,7,10];
-  for (let i = 0; i < div.length; i++) {
-      if (numb % div[i] === 0) {
-          if (numb > maxDivision) {
-              maxDivision = div[i];
-          }
-      }
+//   let maxDivision = 0;
+//   let div = [2,3,6,7,10];
+//   for (let i = 0; i < div.length; i++) {
+//       if (numb % div[i] === 0) {
+//           if (div[i] > maxDivision) {
+//               maxDivision = div[i];
+//           }
+//       }
       
-  }
-  if (maxDivision > 0) {
-      console.log(`The number is divisible by ${maxDivision}`);
-  }
-  else {
-      console.log(`Not divisible`);
-  }
+//   }
+//   if (maxDivision > 0) {
+//       console.log(`The number is divisible by ${maxDivision}`);
+//   }
+//   else {
+//       console.log(`Not divisible`);
+//   }
+if (numb % 10 === 0) {
+    console.log('The number is divisible by 10');
+}
+
+else if (numb % 7 === 0) {
+    console.log('The number is divisible by 7');
+}
+
+else if (numb % 6 === 0) {
+    console.log('The number is divisible by 6');
+}
+else if (numb % 3 === 0) {
+    console.log('The number is divisible by 3');
+}
+else if (numb % 2 === 0) {
+    console.log('The number is divisible by 2');
+}
+else {
+    console.log(`Not divisible`);
+}
 //   if (numb % 2 === 0) {
 //     maxDivision = 2;
 //   }
