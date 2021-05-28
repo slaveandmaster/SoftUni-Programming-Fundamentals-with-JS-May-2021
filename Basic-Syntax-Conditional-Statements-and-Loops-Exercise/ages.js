@@ -11,6 +11,9 @@ function ages(input) {
   } else if (age >= 66) {
     console.log(`elder`);
   }
+  else {
+    console.log("out of bounds");
+  }
 }
 ages(20);
 ages(1);
