@@ -18,7 +18,7 @@ function gladiatorExpenses(
   // •	When both his sword and helmet are broken in the same lost fight, his shield also brakes.
   // •	Every second time, when his shield brakes, his armour also needs to be repaired.
   // You will receive the price of each item in his equipment. Calculate his expenses for the year for renewing his equipment.
-for (let i = 1; i < lostFights; i++) {
+for (let i = 1; i <= lostFights; i++) {
     //проверка за всяка втора игра при която шлема е счупен
     if (i % 2 === 0) {
         expenses += helmetPrice;
@@ -29,10 +29,12 @@ for (let i = 1; i < lostFights; i++) {
     if (i % 2 === 0 && i % 3 === 0) {
         expenses += shieldPrice;
         brokens++;
-        if (brokens == 2) {
-            expenses+=armorPrice;
-        }
+        
     }
+    if (brokens == 2) {
+      expenses+=armorPrice;
+      brokens = 0;
+  }
 }
   // •	As output you must print Peter`s total expenses for new equipment: "Gladiator expenses: {expenses} aureus"
   console.log(`Gladiator expenses: ${expenses.toFixed(2)} aureus`);
