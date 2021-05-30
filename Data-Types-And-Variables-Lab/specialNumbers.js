@@ -10,9 +10,9 @@ function specialNumbers(n) {
     }
 
     if (sum === 5 || sum === 7 || sum === 11) {
-      console.log(`${i} True`);
+      console.log(`${i} -> True`);
     } else {
-      console.log(`${i} False`);
+      console.log(`${i} -> False`);
     }
   }
 }

@@ -6,10 +6,10 @@ function fuelMoney(distance,passenger, fuelPrice) {
   let passengers = passenger;
   let priceFuel = fuelPrice;
   let money = 0;
-  let neededFuel = (dist / 100) * 7;
-  neededFuel += passengers * 0.100;
+  let addFuel = passengers * 0.100;
+  let neededFuel = (dist / 100) * (7 + addFuel);
   money = neededFuel * priceFuel;
-  console.log(`Needed money for that trip is ${money} lv`)
+  console.log(`Needed money for that trip is ${money.toFixed(2)}lv.`)
 }
 fuelMoney(260, 9, 2.49);
 fuelMoney(90, 14, 2.88);
