@@ -29,7 +29,7 @@ function buildAWall(arr) {
   }, 0);
   //крайна цена за цялото количество бетон
   totalCost = totalConcrete * 1900;
-  console.log(dayConcrete.join(","));
+  console.log(dayConcrete.join(", "));
   console.log(`${totalCost} pesos`);
 }
 buildAWall([17]);

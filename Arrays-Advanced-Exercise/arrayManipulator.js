@@ -25,24 +25,37 @@ function arrayManipulator(numbers, commands) {
     numbers.splice(index, 1);
   };
   let shift = (position) => {
-    let chunk = numbers.splice(0, position);
-    numbers.push(...chunk);
-  };
-  let sumPairs = (arr) => {
-    arr = arr.map(Number);
-    for (let index = 0; index < arr.length; index += 2) {
-      let element = arr[index];
-      let nextElement = arr[index + 1] || [];
-      let startIndex = index;
-      let endIndex = index + 1;
-
-      let sum = element + nextElement;
-      arr.splice(startIndex, endIndex, sum);
+    // let chunk = numbers.splice(0, position);
+    // numbers.push(...chunk);
+    let end = Number(position);
+    for (let index = 0; index < end; index++) {
+        let first = numbers.shift();
+        numbers.push(first);
       
     }
   };
+  let sumPairs = (arr) => {
+    arr = arr.map(Number);
+    let newArr = arr.reduce((acc,curr,index) => {
+      if(index % 2 === 0) {
+        acc.push(arr[index] + (arr[index + 1] || 0));
+      }
+      return acc;
+    },[])
+//     let newArr = [];
+//     for (let index = 0; index < arr.length; index += 2) {
+//       let element = arr[index];
+//       let nextElement = arr[index + 1] || [];
+//       let startIndex = index;
+//       let endIndex = index + 1;
+
+//       let sum = element + nextElement;
+// newArr.push(sum);
+//     }
+    numbers = newArr;
+  };
   let printData = (arr) => {
-    console.log(arr);
+    console.log(`[ `+arr.join(', ')+` ]`);
   };
   let cmd;
   while ((cmd = commands.shift())) {
@@ -85,3 +98,7 @@ arrayManipulator(
   [1, 2, 3, 4, 5],
   ["addMany 5 9 8 7 6 5", "contains 15", "remove 3", "shift 1", "print"]
 );
+arrayManipulator([2, 2, 4, 2, 4],
+  ["add 1 4", "sumPairs", "print"])
+arrayManipulator([1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2],
+  ["sumPairs", "sumPairs", "addMany 0 -1 -2 -3", "print"])
