@@ -1,0 +1,40 @@
+function companyUsers(input) {
+  let userList = {};
+  for (const line of input) {
+    let [firm, id] = line.split(" -> ");
+    if (!userList.hasOwnProperty(firm)) {
+      userList[firm] = [];
+    }
+    userList[firm].push(id);
+  }
+  // if (!userList.hasOwnProperty(company)) {
+  //     userList[company] = new Set();
+  // }
+  // userList[company].add(id);
+  for (const [item, numbers] of Object.entries(userList)) {
+    let ids = [...new Set(numbers)];
+    userList[item] = ids;
+  }
+  let sorted = Object.keys(userList).sort((a, b) => {
+    return a.localeCompare(b);
+  });
+  for (let company of sorted) {
+    console.log(`${company}`);
+    for (const idNumber of Object.values(userList[company])) {
+      console.log(`-- ${idNumber}`);
+    }
+  }
+}
+companyUsers([
+  "SoftUni -> AA12345",
+  "SoftUni -> BB12345",
+  "Microsoft -> CC12345",
+  "HP -> BB12345",
+]);
+companyUsers([
+  "SoftUni -> AA12345",
+  "SoftUni -> CC12344",
+  "Lenovo -> XX23456",
+  "SoftUni -> AA12345",
+  "Movement -> DD11111",
+]);
